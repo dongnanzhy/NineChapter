@@ -1,5 +1,11 @@
 package bicmockinterview;
-
+/*
+ * This is a question to find the kth smallest element in unsorted array
+ * One method is to sort array first and find the kth, cost O(nlogn)
+ * Second method is using heap, build heap cost O(n) runtime, delete one element cost
+ *    O(logn) runtime, so totally cost O(n + klogn) runtime. 
+ * using partition, runtime is O(n),it's the best algorithm to solve this problem
+ */
 public class FindKth {
 	public void exchange (int[] ass, int i, int j) {
 		int temp;

@@ -1,5 +1,10 @@
 package bicmockinterview;
-
+/*
+ * This is a question to count inversion in an array
+ * If i < j, but A[i] > A[j], then it's called a pair of inversion.
+ * if we using normal algorithm, the runtime is O(n^2)
+ * using merge algorithm, the runtime is O(nlogn), thus is better
+ */
 public class CountInversion {
 	public int merge (int[] ass, int[] temp, int left, int mid, int right) {
 		int i = left;
