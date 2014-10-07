@@ -74,5 +74,10 @@
 			<artifactId>uimaj-as-jms</artifactId>
 			<version>2.4.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.aliasi</groupId>
+			<artifactId>lingpipe</artifactId>
+			<version>4.1.0</version>
+		</dependency>
 	</dependencies>
 </project>
