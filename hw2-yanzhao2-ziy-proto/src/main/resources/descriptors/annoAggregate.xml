@@ -9,18 +9,26 @@
     <delegateAnalysisEngine key="annogeneLingpipe">
       <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annogeneLingpipe.xml"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="annogeneAbner">
+      <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annogeneAbner.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="annomerge">
+      <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annomerge.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>annoAggregate</name>
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback"/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>annosentence</node>
-        <node>annogeneLingpipe</node>
+        <node>annogeneAbner</node>
+      <node>annogeneLingpipe</node>
+        <node>annomerge</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

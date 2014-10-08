@@ -120,12 +120,12 @@ public class geneLingpipe extends JCasAnnotator_ImplBase {
         begin = begin - countWhiteSpaces(content.substring(0,begin)) ;
         end = begin + gene.length() - countWhiteSpaces(gene) - 1;
         
-        GeneLingpipe annotate_g = new GeneLingpipe(jcas);
-        annotate_g.setBegin(begin);
-        annotate_g.setEnd(end);
-        annotate_g.setId(annotate_s.getId());
-        annotate_g.setContent(gene);
-        annotate_g.addToIndexes(jcas);
+        GeneLingpipe annotate = new GeneLingpipe(jcas);
+        annotate.setBegin(begin);
+        annotate.setEnd(end);
+        annotate.setId(annotate_s.getId());
+        annotate.setContent(gene);
+        annotate.addToIndexes(jcas);
       }    
     }
   }

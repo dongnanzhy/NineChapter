@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue Oct 07 15:19:37 PDT 2014
+ * Updated by JCasGen Tue Oct 07 18:23:16 PDT 2014
  * XML source: /home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/typeSystemDescriptor.xml
  * @generated */
 public class GeneLingpipe extends Annotation {

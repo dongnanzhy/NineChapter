@@ -70,7 +70,7 @@ public class Consumer extends CasConsumer_ImplBase {
     } catch (CASException e) {
       throw new ResourceProcessException(e);
     }
-    FSIterator<org.apache.uima.jcas.tcas.Annotation> it = jcas.getAnnotationIndex(GeneLingpipe.type).iterator();
+    FSIterator<org.apache.uima.jcas.tcas.Annotation> it = jcas.getAnnotationIndex(Result.type).iterator();
     System.out.println("Consuming CAS");
     String geneId = null;
     String geneContent = null;
@@ -78,11 +78,11 @@ public class Consumer extends CasConsumer_ImplBase {
     int end = -1;
     String output = null;
     while (it.hasNext()) {
-      GeneLingpipe annotate = (GeneLingpipe) it.next();
-      geneId = annotate.getId();
-      geneContent = annotate.getContent();      
-      begin = annotate.getBegin();
-      end = annotate.getEnd();  
+      Result result = (Result) it.next();
+      geneId = result.getId();
+      geneContent = result.getContent();      
+      begin = result.getBegin();
+      end = result.getEnd();  
       
       /**
        * @param output      String need to write into output file, including ID and content.
