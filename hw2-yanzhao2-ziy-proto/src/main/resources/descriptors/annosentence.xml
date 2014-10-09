@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>edu.cmu.yanzhao2.annotator.sentence</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName>edu.cmu.yanzhao2.annotator.Senten</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>annosentence</name>
     <description/>

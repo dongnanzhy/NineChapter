@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Tue Oct 07 18:23:16 PDT 2014
+ * Updated by JCasGen Wed Oct 08 13:11:36 PDT 2014
  * @generated */
 public class GeneAbner_Type extends Annotation_Type {
   /** @generated 
@@ -93,6 +93,30 @@ public class GeneAbner_Type extends Annotation_Type {
     ll_cas.ll_setStringValue(addr, casFeatCode_content, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_confidence;
+  /** @generated */
+  final int     casFeatCode_confidence;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public double getConfidence(int addr) {
+        if (featOkTst && casFeat_confidence == null)
+      jcas.throwFeatMissing("confidence", "edu.cmu.yanzhao2.types.GeneAbner");
+    return ll_cas.ll_getDoubleValue(addr, casFeatCode_confidence);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setConfidence(int addr, double v) {
+        if (featOkTst && casFeat_confidence == null)
+      jcas.throwFeatMissing("confidence", "edu.cmu.yanzhao2.types.GeneAbner");
+    ll_cas.ll_setDoubleValue(addr, casFeatCode_confidence, v);}
+    
+  
 
 
 
@@ -112,6 +136,10 @@ public class GeneAbner_Type extends Annotation_Type {
  
     casFeat_content = jcas.getRequiredFeatureDE(casType, "content", "uima.cas.String", featOkTst);
     casFeatCode_content  = (null == casFeat_content) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_content).getCode();
+
+ 
+    casFeat_confidence = jcas.getRequiredFeatureDE(casType, "confidence", "uima.cas.Double", featOkTst);
+    casFeatCode_confidence  = (null == casFeat_confidence) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_confidence).getCode();
 
   }
 }

@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue Oct 07 18:23:16 PDT 2014
+ * Updated by JCasGen Wed Oct 08 13:11:36 PDT 2014
  * XML source: /home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/typeSystemDescriptor.xml
  * @generated */
 public class GeneAbner extends Annotation {
@@ -118,6 +118,28 @@ public class GeneAbner extends Annotation {
     if (GeneAbner_Type.featOkTst && ((GeneAbner_Type)jcasType).casFeat_content == null)
       jcasType.jcas.throwFeatMissing("content", "edu.cmu.yanzhao2.types.GeneAbner");
     jcasType.ll_cas.ll_setStringValue(addr, ((GeneAbner_Type)jcasType).casFeatCode_content, v);}    
+   
+    
+  //*--------------*
+  //* Feature: confidence
+
+  /** getter for confidence - gets 
+   * @generated
+   * @return value of the feature 
+   */
+  public double getConfidence() {
+    if (GeneAbner_Type.featOkTst && ((GeneAbner_Type)jcasType).casFeat_confidence == null)
+      jcasType.jcas.throwFeatMissing("confidence", "edu.cmu.yanzhao2.types.GeneAbner");
+    return jcasType.ll_cas.ll_getDoubleValue(addr, ((GeneAbner_Type)jcasType).casFeatCode_confidence);}
+    
+  /** setter for confidence - sets  
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setConfidence(double v) {
+    if (GeneAbner_Type.featOkTst && ((GeneAbner_Type)jcasType).casFeat_confidence == null)
+      jcasType.jcas.throwFeatMissing("confidence", "edu.cmu.yanzhao2.types.GeneAbner");
+    jcasType.ll_cas.ll_setDoubleValue(addr, ((GeneAbner_Type)jcasType).casFeatCode_confidence, v);}    
   }
 
     

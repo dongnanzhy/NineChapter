@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
+
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIterator;
@@ -39,12 +40,12 @@ public class Consumer extends CasConsumer_ImplBase {
    */
   public void initialize() {
     try {
-    out = new File("src/main/resources/inputData/hw1-yanzhao2.out");
+    out = new File((String) getConfigParameterValue("output"));
     bw = new BufferedWriter(new FileWriter(out));
     } catch (Exception e) {
       e.printStackTrace();
     }
-    test = new File("src/main/resources/inputData/sample.out");
+    test = new File((String) getConfigParameterValue("test"));
     Scanner dict = null;
     try {
       dict = new Scanner(test);
