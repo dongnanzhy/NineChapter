@@ -7,10 +7,20 @@ import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import edu.cmu.yanzhao2.types.*;
-
+/** Merge used to evaluate gene words annotated using abner and lingpipe.
+ * 
+ * @author Yan Zhao
+ * @version 1.0 October, 2014.
+ */
 public class Merge extends JCasAnnotator_ImplBase {
     private HashMap<String, Integer> abner_map_h = new HashMap<String, Integer>();
     private HashMap<String, Integer> abner_map_l = new HashMap<String, Integer>();
+    /**
+     * initialize method will initialize two hashmap to store high and low confident abner.
+     * 
+     * @param aContext
+     * 
+     */
     public void initialize(JCas jcas) {
         FSIterator<Annotation> abner_it = jcas.getAnnotationIndex(GeneAbner.type).iterator();
         while (abner_it.hasNext()) {
@@ -22,6 +32,13 @@ public class Merge extends JCasAnnotator_ImplBase {
             }
         }
     }
+    /** 
+     * process(JCas aJCas) will process JCAS with annotated noun/phrase by lingpipe and abner 
+     * adding to result for consumer.
+     * 
+     * @param aJCas 
+     *      a JCAS that this annotator should process.
+     */
     public void process(JCas aJCas) throws AnalysisEngineProcessException {
         //TODO Auto-generated method stub
         initialize(aJCas);

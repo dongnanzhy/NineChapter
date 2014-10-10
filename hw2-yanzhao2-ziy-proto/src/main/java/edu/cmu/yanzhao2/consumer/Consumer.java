@@ -45,19 +45,19 @@ public class Consumer extends CasConsumer_ImplBase {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    /*
     test = new File((String) getConfigParameterValue("test"));
     Scanner dict = null;
     try {
       dict = new Scanner(test);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
-    }
-    
+    }  
     while (dict.hasNext()) {
       table.put(dict.nextLine(), 0);
       answer++;
     }
-    
+    */
   }
   
   /**
@@ -89,11 +89,13 @@ public class Consumer extends CasConsumer_ImplBase {
        * @param output      String need to write into output file, including ID and content.
        */
       output = geneId + "|" + begin + " " + end + "|" + geneContent;
+      /*
       if (table.containsKey(output)) {
         hit++;
       } else {
         miss++;
       }
+      */
 
       try {
         writeIntoFile(output);
@@ -106,10 +108,12 @@ public class Consumer extends CasConsumer_ImplBase {
       }
       
     }
+    /*
     double precision = hit * 1.0 / (hit + miss);
     double recall = hit * 1.0 / answer;
     System.out.println("Precision: " + precision + " " + "Recall: " + recall + " " 
                       + "F1_Score: " + 2 * precision * recall / (precision + recall));
+    */
   }
   
   /**

@@ -25,13 +25,13 @@
       <nameValuePair>
         <name>output</name>
         <value>
-          <string>src/main/resources/hw2-yanzhao2.out</string>
+          <string>hw2-yanzhao2.out</string>
         </value>
       </nameValuePair>
       <nameValuePair>
         <name>test</name>
         <value>
-          <string>src/main/resources/inputData/sample.out</string>
+          <string>hw2.gold_stand.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

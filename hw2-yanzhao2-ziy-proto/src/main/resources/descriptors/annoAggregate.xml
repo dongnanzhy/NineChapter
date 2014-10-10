@@ -4,16 +4,16 @@
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
     <delegateAnalysisEngine key="annosentence">
-      <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annosentence.xml"/>
+      <import location="annosentence.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="annogeneLingpipe">
-      <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annogeneLingpipe.xml"/>
+      <import location="annogeneLingpipe.xml"/>
     </delegateAnalysisEngine>
   <delegateAnalysisEngine key="annogeneAbner">
-      <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annogeneAbner.xml"/>
+      <import location="annogeneAbner.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="annomerge">
-      <import location="/home/dongnanzhy/git/hw2-yanzhao2/hw2-yanzhao2-ziy-proto/src/main/resources/descriptors/annomerge.xml"/>
+      <import location="annomerge.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -21,25 +21,8 @@
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters searchStrategy="language_fallback">
-      <configurationParameter>
-        <name>Hmm</name>
-        <type>String</type>
-        <multiValued>false</multiValued>
-        <mandatory>false</mandatory>
-        <overrides>
-          <parameter>annogeneLingpipe/Hmm</parameter>
-        </overrides>
-      </configurationParameter>
-    </configurationParameters>
-    <configurationParameterSettings>
-      <nameValuePair>
-        <name>Hmm</name>
-        <value>
-          <string>/descriptors/ne-en-bio-genetag.HmmChunker</string>
-        </value>
-      </nameValuePair>
-    </configurationParameterSettings>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>annosentence</node>

@@ -20,8 +20,8 @@ import com.aliasi.util.AbstractExternalizable;
 import edu.cmu.yanzhao2.types.*;
 
 
-/**
- * This class used to annotate gene words.Using lingpipe genetag.HmmChunker
+/** Lingpipe used to annotate gene words.Using lingpipe genetag.HmmChunker
+ * 
  * @author Yan Zhao
  * @version 2.0 September, 2014.
  */
@@ -41,17 +41,38 @@ public class Lingpipe extends JCasAnnotator_ImplBase {
    */
   private ConfidenceChunker chunker = null;
   
-  public void initialize(UimaContext context) {
-/*
+  /**
+   * initialize method will initialize one instance for private variable chunker,
+   * which is one of the components of Lingpipe. It also loads the Genetag Model into
+   * the annotator.
+   * 
+   * @param aContext
+   * @throws ResourceInitializationException 
+   * 
+   */
+  public void initialize(UimaContext context) throws ResourceInitializationException {
     super.initialize(context);
+    /*
     try {
-      modelFile = new File(getContext().getResourceFilePath("Hmm"));
+//      System.out.println(getContext().getResourceFilePath("Hmm"));
+      modelFile = new File(getContext().getResourceFilePath("HmmChunker"));
     } catch (ResourceAccessException e1) {
       // TODO Auto-generated catch block
       e1.printStackTrace();
     }
-*/
-   modelFile = new File("src/main/resources/descriptors/ne-en-bio-genetag.HmmChunker");
+    */
+//   modelFile = new File("src/main/resources/descriptors/ne-en-bio-genetag.HmmChunker");
+    try {
+      chunker = (ConfidenceChunker) AbstractExternalizable.readResourceObject(Lingpipe.class, 
+              (String)context.getConfigParameterValue("HmmChunker"));
+    } catch (ClassNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    /*
     try {
       chunker = (ConfidenceChunker) AbstractExternalizable.readObject(modelFile);
     } catch (ClassNotFoundException e) {
@@ -59,26 +80,21 @@ public class Lingpipe extends JCasAnnotator_ImplBase {
     } catch (IOException e) {
       e.printStackTrace();
     }
+     */
   }
+
   
-  /**
-   * process(JCas arg0)     Read sentences from CAS iteratively, use lingpipe gene library to check if a string is genetic.
-   *                        Store the ID and content of gene words into CAS. 
-   * @param aCAS            Object of JCas
-   * @param annotate_s      Object of Class sentenceTag, used to read sentence ID and content.
-   * @param confidence      Used in <ne-en-bio-genetag.HmmChunker> to calculate the confidence of the recognized gene words.
-   * @param annotate_g      Used to set Gene ID and content.
+  /** 
+   * process(JCas arg0) will process JCAS with annotation of noun/phrase, 
+   * adding gene annotation to them using lingpipe.
+   * 
+   * @param arg0 
+   *      a JCAS that this annotator should process.
    */
   public void process(JCas arg0) throws AnalysisEngineProcessException {
   
     JCas jcas = arg0;
-    try {
-      chunker = (ConfidenceChunker) AbstractExternalizable.readObject(modelFile);
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    
     FSIterator<org.apache.uima.jcas.tcas.Annotation> it = jcas.getAnnotationIndex(Sentence.type).iterator(); 
     while (it.hasNext()) {
       Sentence annotate_s = (Sentence) it.next();
@@ -113,6 +129,7 @@ public class Lingpipe extends JCasAnnotator_ImplBase {
   
   /**
    * countWhiteSpaces(String phrase)    Count the number of whitespaces in a string.
+   * 
    * @param phrase      input string that need to calculate.
    * @return int        the number of whitespaces in an input string.
    */

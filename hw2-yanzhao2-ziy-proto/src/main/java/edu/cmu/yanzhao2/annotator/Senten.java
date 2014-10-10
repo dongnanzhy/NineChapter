@@ -5,16 +5,20 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
 import edu.cmu.yanzhao2.types.*;
 
-/**
- * This class used to annotate the sentence.  
+/** Senten is used to break the input text 
+ *          into individual lines based on line breaks.  
  * @author Yan Zhao
  * @version 1.0 September, 2014.
  */
 public class Senten extends JCasAnnotator_ImplBase {
 
-  /**
-   * process(JCas arg0)     Read content from CAS, split it by line, and annotate them by their ID and content. 
-   * @param aCAS  
+  /** process(JCas aJCas) will process the CAS, adding sentence features to lines.
+   * 
+   * @param arg0     
+   *      a JCAS that SentencesAnnotator should process.
+   * 
+   * @throws AnalysisEngineProcessException
+   *           if a problem occurs during processing
    */
   public void process(JCas arg0) throws AnalysisEngineProcessException {
     String text = arg0.getDocumentText();
