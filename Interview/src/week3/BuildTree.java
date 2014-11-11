@@ -19,7 +19,8 @@ public class BuildTree {
 		for (int i = 0; i < num.length; i++) {
 			q.offer(num[i]);
 		}
-//		int val = Integer.parseInt(num[0]);
+
+		//		int val = Integer.parseInt(num[0]);
 		TreeNode root = new TreeNode(q.poll());
 		parent.offer(root);
 		while (!q.isEmpty()) {

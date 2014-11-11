@@ -2,7 +2,7 @@
  * Implement pow(x, n). O(lgn) Run Time
  */
 
-package other;
+package LeetCode;
 
 public class Pow {
     public double pow(double x, int n) {

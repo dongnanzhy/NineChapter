@@ -1,6 +1,5 @@
 package bicmockinterview;
 import week4.BuildList;
-import week4.SortList;
 import week4.BuildList.ListNode;
 /**
  * Given a linked list, remove the nth node from the end of list and return its head.
