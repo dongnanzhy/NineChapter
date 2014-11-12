@@ -5,7 +5,7 @@ package week4;
 
 public class BuildList {
 	 public static class ListNode {
-		 int val;
+		 public int val;
 		 public ListNode next;
 		 public ListNode(int x) {
 			 val = x;

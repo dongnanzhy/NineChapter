@@ -3,11 +3,11 @@ package week3;
 import java.util.*;
 
 public class BuildTree {
-	public class TreeNode {
+	public static class TreeNode {
 		int val;
-		TreeNode left;
-		TreeNode right;
-		TreeNode (int x) { val = x; }
+		public TreeNode left;
+		public TreeNode right;
+		public TreeNode (int x) { val = x; }
 	}
 	
 	public TreeNode buildTree (int[] num) {
