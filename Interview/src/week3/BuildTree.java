@@ -4,7 +4,7 @@ import java.util.*;
 
 public class BuildTree {
 	public static class TreeNode {
-		int val;
+		public int val;
 		public TreeNode left;
 		public TreeNode right;
 		public TreeNode (int x) { val = x; }

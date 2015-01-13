@@ -1,4 +1,4 @@
-package Competition;
+package MScompetition;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,37 +17,28 @@ public class Palindrome {
 	    return dest.toString();
 	}
 	
-	public String output (String s) {
-		String newS = s.toLowerCase();
-		int maxL = 0;
-		int size = s.length();
-		int begin = 0;
-		String revS = reverseS(newS);
-		for (int i = 0; i < size; i++) {
-			for (int j =0; j < size; j++) {
-				if (!isLetter(newS.charAt(i)) || !isLetter(revS.charAt(j))) {
-					continue;
-				}
-				int length = palind (newS, i, revS, j);
-				if (length > maxL) {
-					begin = i;
-					maxL = length;
-				}
-			}
+	public boolean isLetter (char a) {
+		if (a >= '0' && a <= '9') {
+			return true;
+		} else if (a >= 'A' && a <= 'Z') {
+			return true;
+		} else if (a >= 'a' && a <= 'z') {
+			return true;
+		} else {
+			return false;
 		}
-		return s.substring(begin, begin + maxL);
 	}
 	
-	public boolean isLetter (char a) {
-		if (a < 'A') {
-			return false;
-		} else if (a > 'Z' && a < 'a') {
-			return false;
-		} else if (a > 'z') {
-			return false;
-		} else {
+	public boolean isValid (String s, int begin) {
+		if (begin == 0) {
+			if ( isLetter (s.charAt(begin)) ) 
+				return true;
+			else
+				return false;
+		} else if (!isLetter (s.charAt(begin - 1)) && isLetter (s.charAt(begin))) {
 			return true;
-		}
+		} else 
+			return false;
 	}
 	
     public int palind (String s1, int begin1, String s2, int begin2) {
@@ -55,36 +46,57 @@ public class Palindrome {
     	while (begin1 < s1.length() && begin2 < s2.length()) {
     		while (begin1 < s1.length() && !isLetter(s1.charAt(begin1))) {
     			begin1++;
-    			length++;
     		}
     		while (begin2 < s2.length() && !isLetter(s2.charAt(begin2))) {
     			begin2++;
-    			length++;
     		}
     		if (begin1 >= s1.length() || begin2 >= s2.length()) {
     			break;
     		}
     		if (s1.charAt(begin1) != s2.charAt(begin2)) {
     			break;
-    		}
-    		while (s1.charAt(begin1) == s2.charAt(begin2)) {
+    		} else {
         		begin1++;
         		begin2++;
         		length++;
-        		if (begin1 >= s1.length() || begin2 >= s2.length()) {
-        			break;
-        		}
     		}
     	}
     	return length;
-    }   
+    }
     
+	public String output (String s) {
+		String newS = s.toLowerCase();
+		int maxL = 0;
+		int size = s.length();
+		int begin = 0; 
+		int end = size - 1;
+		String revS = reverseS(newS);
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (!isValid(newS,i) || !isValid(revS,j)) {
+					continue;
+				}
+				int length = palind (newS,i, revS, j);
+				if (length > maxL) {
+					begin = i;
+					end = size - j ;
+					maxL = length;
+
+				}
+			}
+		}
+		return s.substring(begin, end);
+	}
+   
 	  public static void main(String[] Args) throws FileNotFoundException {
 		    Palindrome result = new Palindrome();
 		    Scanner in = new Scanner(new File("src/JudgeInput.txt"));
 		    while(in.hasNext()){
 		       String str = in.nextLine();
-		       System.out.println(result.output(str));    
+//		       System.out.println(str);
+		       System.out.println(result.output(str)); 
+//		       System.out.println("sss");
 		    }
+		    in.close();
 		  }
 }

@@ -42,6 +42,17 @@ public class Traversal {
         }
         return list;
     }
+    
+	public void Inorder_traversal (BuildTree.TreeNode root, ArrayList<Integer> result) {
+		if (root == null) {
+			return;
+		}
+		Inorder_traversal(root.left, result);
+		result.add(root.val);
+		Inorder_traversal(root.right, result);
+		return;
+	}
+	
     public List<Integer> inorderTraversal(BuildTree.TreeNode root) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         if (root == null) {
@@ -164,10 +175,12 @@ public class Traversal {
 		Traversal travel = new Traversal();
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		List<Integer> result2 = new ArrayList<Integer>();
-		List<Integer> result_inorder = new ArrayList<Integer>();		
+		List<Integer> result_inorder = new ArrayList<Integer>();
+		ArrayList<Integer> result_inorder2 = new ArrayList<Integer>();
 		List<Integer> result_postorder = new ArrayList<Integer>();
 		
 		travel.Preorder_traversal (root, result);
+		travel.Inorder_traversal(root, result_inorder2);
 		result2 = travel.preorderTraversal2 (root);
 		result_inorder = travel.inorderTraversal(root);
 		result_postorder = travel.postorderTraversal(root);
@@ -175,6 +188,7 @@ public class Traversal {
 		System.out.println(result);
 		System.out.println(result2);
 		System.out.println(result_inorder);
+		System.out.println(result_inorder2);
 		System.out.println(result_postorder);
 	}
 }
