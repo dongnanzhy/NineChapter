@@ -2,6 +2,8 @@ package week3;
 
 import java.util.*;
 
+import week3.BuildTree.TreeNode;
+
 public class LCA {
 	public int leastCommonAncestor (BuildTree.TreeNode root, BuildTree.TreeNode node1, BuildTree.TreeNode node2) {
 		if (root == null || node1 == null || node2 == null) {
@@ -33,22 +35,16 @@ public class LCA {
 	     return -256;
 	}
 	
-	public boolean helper (BuildTree.TreeNode root, BuildTree.TreeNode node) {
+	public boolean helper (TreeNode root, BuildTree.TreeNode node) {
 		if (root == null) {
 			return false;
 		}
 		
 		if (root == node) {
 			return true;
-		} else if (root.left != null && root.right != null) {
-			return (helper (root.left, node) || helper(root.right, node));
-		} else if (root.left != null) {
-			return helper (root.left, node);
-		} else if (root.right != null) {
-			return helper (root.right, node);
 		} else {
-			return false;
-		}
+			return (helper (root.left, node) || helper(root.right, node));
+		} 
 	}
 	
     public static void main (String[] args) {

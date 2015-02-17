@@ -8,7 +8,7 @@
 	return [3, 4]
  */
 
-package week2;
+package week2BS;
 
 import java.util.Scanner;
 

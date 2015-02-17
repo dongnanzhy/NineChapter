@@ -8,7 +8,7 @@
  */
 
 
-package week2;
+package week2BS;
 
 public class Solution4 {
 	public boolean search(int[] A, int target) {

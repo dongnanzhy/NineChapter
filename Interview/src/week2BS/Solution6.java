@@ -13,7 +13,7 @@
 	Consider the following matrix:
  */
 
-package week2;
+package week2BS;
 
 public class Solution6 {
 	//The first method

@@ -5,7 +5,7 @@
      @return the first occurrence position of target 
  */
 
-package week2;
+package week2BS;
 import java.util.Scanner;
 
 public class Solution1 {

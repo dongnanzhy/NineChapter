@@ -3,7 +3,7 @@
  * The overall run time complexity should be O(log (m+n)).
  */
 
-package week2;
+package week2BS;
 
 public class Solution5 {
     public double findMedianSortedArrays(int A[], int B[]) {

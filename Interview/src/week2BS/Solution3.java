@@ -9,7 +9,7 @@
 	You may assume no duplicate exists in the array.
  */
 
-package week2;
+package week2BS;
 
 public class Solution3 {
     public int search(int[] A, int target) {
